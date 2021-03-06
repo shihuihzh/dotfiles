@@ -1,0 +1,217 @@
+set ideajoin
+set surround
+set multiple-cursors
+set commentary
+"set clipboard=unnamed
+set clipboard+=ideaput
+set history=5000
+set number
+set hlsearch
+set ignorecase
+set smartcase
+set gdefault
+set scrolloff=3
+set sidescrolloff=4
+" set keep-english-in-normal
+" set keep-english-in-normal-and-restore-in-insert
+
+let mapleader = ' '
+
+" keys 
+" clear the search buffer when hitting return
+nnoremap <leader><cr> :nohlsearch<cr>
+
+" options
+nnoremap cow :action EditorToggleUseSoftWraps<cr>
+nnoremap col :action EditorToggleShowWhitespaces<cr>
+
+" actions
+nmap == :action ReformatCode<cr>
+vmap == :action ReformatCode<cr>
+nnoremap <leader>q :action CloseContent<cr>
+nnoremap <leader>Q :action ReopenClosedTab<cr>
+nnoremap <leader>\ :action VimFilePrevious<cr>
+nnoremap <c-p> :action SearchEverywhere<cr>
+nnoremap <leader>e :action RecentFiles<cr>
+nnoremap <leader>t :action FileStructurePopup<cr>
+nnoremap <leader>T :action GotoSymbol<cr>
+nnoremap <leader>a :action GotoAction<cr>
+nnoremap <leader>b :action ToggleLineBreakpoint<cr>
+
+" code navigation
+nnoremap gd :action GotoImplementation<cr>
+nnoremap gs :action GotoSuperMethod<cr>
+nnoremap gr :action FindUsages<cr>
+nnoremap <leader>gt :action GotoTest<cr>
+nnoremap <leader>k :action HighlightUsagesInFile<cr>
+nnoremap \r :action RunClass<cr>
+nnoremap \R :action Run<cr>
+nnoremap \d :action DebugClass<cr>
+nnoremap \D :action Debug<cr>
+nnoremap \c :action CheckStyleCurrentFileAction<cr>
+
+" code refactoring
+nnoremap <leader>rr :action RenameElement<cr>
+
+" unimpaired mappings
+nnoremap [<leader> O<esc>j
+nnoremap ]<leader> o<esc>k
+nnoremap [q :action PreviousOccurence<cr>
+nnoremap ]q :action NextOccurence<cr>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+
+
+" built-in navigation to navigated items works better
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+" but preserve ideavim defaults
+nnoremap g<c-o> <c-o>
+nnoremap g<c-i> <c-i>
+
+" built in search looks better
+nnoremap / :action Find<cr>
+" but preserve ideavim search
+nnoremap g/ /
+
+inoremap jj <ESC>
+inoremap kk <ESC>
+
+"----------------------------------------------------------------------
+" INSERT 模式下使用 EMACS 键位
+"----------------------------------------------------------------------
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+inoremap <c-d> <del>
+inoremap <c-_> <c-k>
+
+
+"----------------------------------------------------------------------
+" 设置 CTRL+HJKL 移动光标（INSERT 模式偶尔需要移动的方便些）
+" 使用 SecureCRT/XShell 等终端软件需设置：Backspace sends delete
+" 详见：http://www.skywind.me/blog/archives/2021
+"----------------------------------------------------------------------
+noremap <C-h> <left>
+noremap <C-j> <down>
+noremap <C-k> <up>
+noremap <C-l> <right>
+inoremap <C-h> <left>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-l> <right>
+
+
+"----------------------------------------------------------------------
+" 命令模式的快速移动
+"----------------------------------------------------------------------
+cnoremap <c-h> <left>
+cnoremap <c-j> <down>
+cnoremap <c-k> <up>
+cnoremap <c-l> <right>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-f> <c-d>
+cnoremap <c-b> <left>
+cnoremap <c-d> <del>
+cnoremap <c-_> <c-k>
+
+
+"----------------------------------------------------------------------
+" <leader>+数字键 切换tab
+"----------------------------------------------------------------------
+noremap <silent><leader>1 1gt<cr>
+noremap <silent><leader>2 2gt<cr>
+noremap <silent><leader>3 3gt<cr>
+noremap <silent><leader>4 4gt<cr>
+noremap <silent><leader>5 5gt<cr>
+noremap <silent><leader>6 6gt<cr>
+noremap <silent><leader>7 7gt<cr>
+noremap <silent><leader>8 8gt<cr>
+noremap <silent><leader>9 9gt<cr>
+noremap <silent><leader>0 10gt<cr>
+
+
+"----------------------------------------------------------------------
+" ALT+N 切换 tab
+"----------------------------------------------------------------------
+" noremap <silent><a-1> :tabn 1<cr>
+" noremap <silent><a-2> :tabn 2<cr>
+" noremap <silent><a-3> :tabn 3<cr>
+" noremap <silent><a-4> :tabn 4<cr>
+" noremap <silent><a-5> :tabn 5<cr>
+" noremap <silent><a-6> :tabn 6<cr>
+" noremap <silent><a-7> :tabn 7<cr>
+" noremap <silent><a-8> :tabn 8<cr>
+" noremap <silent><a-9> :tabn 9<cr>
+" noremap <silent><a-0> :tabn 10<cr>
+" inoremap <silent><a-1> <ESC>:tabn 1<cr>
+" inoremap <silent><a-2> <ESC>:tabn 2<cr>
+" inoremap <silent><a-3> <ESC>:tabn 3<cr>
+" inoremap <silent><a-4> <ESC>:tabn 4<cr>
+" inoremap <silent><a-5> <ESC>:tabn 5<cr>
+" inoremap <silent><a-6> <ESC>:tabn 6<cr>
+" inoremap <silent><a-7> <ESC>:tabn 7<cr>
+" inoremap <silent><a-8> <ESC>:tabn 8<cr>
+" inoremap <silent><a-9> <ESC>:tabn 9<cr>
+" inoremap <silent><a-0> <ESC>:tabn 10<cr>
+
+
+"----------------------------------------------------------------------
+" 缓存：插件 unimpaired 中定义了 [b, ]b 来切换缓存
+"----------------------------------------------------------------------
+noremap <silent> <leader>bn :bn<cr>
+noremap <silent> <leader>bp :bp<cr>
+
+
+"----------------------------------------------------------------------
+" TAB：创建，关闭，上一个，下一个，左移，右移
+" 其实还可以用原生的 CTRL+PageUp, CTRL+PageDown 来切换标签
+"----------------------------------------------------------------------
+
+noremap <silent> <leader>tc :tabnew<cr>
+noremap <silent> <leader>tq :tabclose<cr>
+noremap <silent> <leader>tn :tabnext<cr>
+noremap <silent> <leader>tp :tabprev<cr>
+noremap <silent> <leader>to :tabonly<cr>
+
+"----------------------------------------------------------------------
+" ALT 键移动增强
+"----------------------------------------------------------------------
+
+" ALT+h/l 快速左右按单词移动（正常模式+插入模式）
+noremap <a-h> b
+noremap <a-l> w
+inoremap <a-h> <c-left>
+inoremap <a-l> <c-right>
+
+" ALT+j/k 逻辑跳转下一行/上一行（按 wrap 逻辑换行进行跳转） 
+noremap <a-j> gj
+noremap <a-k> gk
+inoremap <a-j> <c-\><c-o>gj
+inoremap <a-k> <c-\><c-o>gk
+
+" 命令模式下的相同快捷
+cnoremap <a-h> <c-left>
+cnoremap <a-l> <c-right>
+
+" ALT+y 删除到行末
+noremap <a-y> d$
+inoremap <a-y> <c-\><c-o>d$
+
+
+"----------------------------------------------------------------------
+" 窗口切换：ALT+SHIFT+hjkl
+" 传统的 CTRL+hjkl 移动窗口不适用于 vim 8.1 的终端模式，CTRL+hjkl 在
+" bash/zsh 及带文本界面的程序中都是重要键位需要保留，不能 tnoremap 的
+"----------------------------------------------------------------------
+noremap <a-H> <c-w>h
+noremap <a-L> <c-w>l
+noremap <a-J> <c-w>j
+noremap <a-K> <c-w>k
+inoremap <a-H> <esc><c-w>h
+inoremap <a-L> <esc><c-w>l
+inoremap <a-J> <esc><c-w>j
+inoremap <a-K> <esc><c-w>k
+

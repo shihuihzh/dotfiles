@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/zhanhao/DEV/Git/lede/tools/squashfskit4'
+let g:netrw_dirhist_6='/home/zhanhao/DEV/Git/lede/tools'
+let g:netrw_dirhist_5='/mnt'
+let g:netrw_dirhist_4='/mnt/boot'
+let g:netrw_dirhist_3='/mnt/boot/EFI'
+let g:netrw_dirhist_2='/mnt/boot/EFI/LFS'
+let g:netrw_dirhist_1='/mnt/boot/EFI'
+let g:netrw_dirhist_0='/etc/docker'
+let g:netrw_dirhist_9='/home/zhanhao/.config/dwm'
+let g:netrw_dirhist_8='/home/zhanhao/.config/kitty'

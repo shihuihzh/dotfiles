@@ -1,0 +1,11 @@
+var:
+  last_build_time: 1614688101
+  option:
+    simplification: true
+  previously_selected_schema: luna_pinyin
+  schema_access_time:
+    double_pinyin: 1592631813
+    luna_pinyin: 1614482174
+    luna_pinyin_fluency: 1592647399
+    luna_pinyin_simp: 1604334497
+    terra_pinyin: 1604333021

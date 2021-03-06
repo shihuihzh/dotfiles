@@ -1,0 +1,11 @@
+[user]
+	email = shihuihzh@gmail.com
+	name = Howe Huang
+[color]
+	ui = auto
+[http]
+[core]
+	autocrlf = input
+	excludesfile = /home/zhanhao/.gitignore
+[pull]
+	rebase = false

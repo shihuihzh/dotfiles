@@ -1,0 +1,26 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e sudo wifi-menu ;;
+esac
+
+INTERFACE="${BLOCK_INSTANCE:-wlan0}"
+
+[[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]] && echo 📡 && exit
+
+SSID=`iwgetid -r`
+DBM=$(wpa_cli scan_results | grep "${SSID}" | awk '{print $3}')
+# QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+
+# echo 📶 $QUALITY%
+# echo "<span color='red'>$DBM</span>"
+echo 📶 $DBM
+
+
+
+#     echo ""
+# elif [[ $DBM -ge -80 ]]; then
+#     echo ""
+# else
+#     echo ""
+# fi

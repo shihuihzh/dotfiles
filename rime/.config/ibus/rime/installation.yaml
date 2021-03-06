@@ -1,0 +1,8 @@
+distribution_code_name: "ibus-rime"
+distribution_name: Rime
+distribution_version: 1.5.0
+install_time: "Wed Oct 30 22:55:13 2019"
+installation_id: "howe-rime-sync"
+rime_version: 1.7.3
+sync_dir: "/home/zhanhao/.config/RimeSync"
+update_time: "Tue Mar  2 20:28:21 2021"
