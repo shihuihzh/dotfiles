@@ -62,14 +62,17 @@ filetype plugin on
 
 " ========== Key Mapping ==========
 let mapleader = ' '
-nnoremap <leader><CR> :nohlsearch<CR>
-imap jj <ESC>
+nnoremap <silent><leader><CR> :nohlsearch<CR>
 nnoremap <silent><C-x> :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>W :wq<CR>
+imap jj <ESC>
 " nnoremap <silent><C-X> :qa<CR>
 
 " Code enhance
-inoremap <C-E> <ESC>A;<CR>
-
+inoremap <C-CR> <ESC>A;<CR>
+nnoremap <C-CR> A;<CR><ESC>
+nnoremap <S-CR> o<ESC>
 
 " Terminal
 nnoremap <silent><leader>t :below 10split term://zsh<CR>A
@@ -112,6 +115,20 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 " complete
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -130,11 +147,13 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rr <Plug>(coc-rename)
 
 " Formatting selected code.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+xmap ==  <Plug>(coc-format-selected)
+nmap ==  <Plug>(coc-format-selected)
+nmap <silent>=a  :Format<CR>
+
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
