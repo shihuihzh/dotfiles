@@ -46,6 +46,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ibus-daemon -drx
 # fcitx-autostart &
 /usr/bin/kdeconnect-indicator &
+/usr/lib/kdeconnectd &
 /usr/bin/blueman-tray &
 
 # NVM for nodejs
